@@ -5,10 +5,13 @@ import "./Main.scss"
 import Card from '../Card/Card'
 
 const Main = (props) => {
-  const { beersArr } = props
+  const { beersArr, beerImagesArr } = props
+  // const imagesJSX = beerImagesArr.map((image) => {
+  //   return <CardList
+  //     picture={image.image_url}/>
+  // })
   const beerJSX = beersArr.map((beer) => {
     return <Card 
-    image={beer.image_url}
     name={beer.name}
     tagline={beer.tagline}
     description={beer.description}
