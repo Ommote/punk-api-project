@@ -1,24 +1,23 @@
-
+.NavContainer {
+  display: flex;
+}
 
 .NavBar {
-    font-size: 40px;
-    margin-top: 0;
-    background-color: #153243;
-    color: #B4B8AB;
-    display: flex;
-    flex-direction: column;
-    height: 2000px;
-    width: 500px;
-    position: fixed;
+  font-size: 25px;
+  margin-top: 0;
+  background-color: #153243;
+  color: #b4b8ab;
+  //   display: flex;
+  height: 80px;
+  width: 100%;
 }
 
 input {
-    font-size:70px;
+  font-size: 20px;
 }
 
-
 input.check {
-    height: 80px;
-    width: 80px;
-   accent-color: #284B63;
+  height: 20px;
+  width: 20px;
+  accent-color: red;
 }
