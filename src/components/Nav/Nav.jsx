@@ -1,43 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Nav.scss";
+import SearchBox from "../SearchBox/SearchBox";
+import Card from "../Card/Card";
 
-const Nav = () => {
+const Nav = (props) => {
+  const { beersArr } = props;
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearch = (event) => {
+    const input = event.target.value.toLowerCase();
+    setSearchTerm(input);
+  };
+
+  const filteredBeers = beersArr.filter((beer) => {
+    return beer.name.toLowerCase().includes(searchTerm);
+  });
+
   return (
     <div className="NavContainer">
       <div className="NavBar">
-        <label htmlFor="search"></label>
-        <input type="search" name="search" id="search" placeholder="Search" />
-        <br />
-        <label htmlFor="abv" for="abv">
-          High ABV (&gth;6.0%)
-        </label>
-        <input
-          className="check"
-          type="checkbox"
-          name="abv"
-          id="abv"
-          dir="rtl"
-        />
-        <label htmlFor="classic" for="classic">
-          Classic Range
-        </label>
-        <input
-          className="check"
-          type="checkbox"
-          name="classic"
-          id="classic"
-          dir="rtl"
-        />
-        <label htmlFor="acidic" for="acidic">
-          Acidic (ph &lth; 4)
-        </label>
-        <input
-          className="check"
-          type="checkbox"
-          name="acidic"
-          id="acidic"
-          dir="rtl"
-        />
+        <section>
+          <SearchBox
+            label="beers"
+            searchTerm={searchTerm}
+            handleInput={handleSearch}
+          />
+        </section>
+        <section>
+          <Card beersArr={filteredBeers} title="beer" />
+        </section>
       </div>
     </div>
   );

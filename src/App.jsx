@@ -1,18 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import Main from "./components/Main/Main"
-import beers from './data/beer';
-import Nav from './components/Nav/Nav'
+import logo from "./logo.svg";
+import "./App.css";
+import Main from "./components/Main/Main";
+import beers from "./data/beer";
+import Nav from "./components/Nav/Nav";
 
-console.log(beers)
+console.log(beers);
 
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Main 
-      beersArr={beers}
-      />
+      <section>
+        <Nav beersArr={beers} />
+      </section>
+      <section>
+        <Main beersArr={beers} />
+      </section>
     </div>
   );
 }
