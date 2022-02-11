@@ -1,0 +1,14 @@
+nav {
+  background-color: blue;
+  color: antiquewhite;
+  display: flex;
+}
+
+.nav-items {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-items > li {
+  padding: 10px;
+}

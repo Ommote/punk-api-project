@@ -1,16 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import Main from "./components/Main/Main"
-import beers from './data/beer';
-
-console.log(beers)
+import "./App.css";
+import Main from "./components/Main/Main";
+import beers from "./data/beer";
 
 function App() {
   return (
     <div className="App">
-      <Main 
-      beersArr={beers}
-      />
+      <Main beersArr={beers} />
     </div>
   );
 }

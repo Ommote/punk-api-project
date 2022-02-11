@@ -1,13 +1,14 @@
-import React from 'react'
-import Card from "../Card/Card"
-import "./CardList.scss"
+import React from "react";
+import Card from "../Card/Card";
+import "./CardList.scss";
 
-const CardList = () => {
-
-  
+const CardList = (props) => {
+  const { beersArr } = props;
   return (
-    <div>CardList</div>
-  )
-}
+    <div>
+      <Card />
+    </div>
+  );
+};
 
-export default CardList
+export default CardList;
