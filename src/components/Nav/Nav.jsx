@@ -1,19 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Nav.scss";
 import SearchBox from "../SearchBox/SearchBox";
-import Card from "../Card/Card";
 
 const Nav = (props) => {
-  const { beersArr } = props;
-  const [searchTerm, setSearchTerm] = useState("");
-  const handleSearch = (event) => {
-    const input = event.target.value.toLowerCase();
-    setSearchTerm(input);
-  };
-
-  const filteredBeers = beersArr.filter((beer) => {
-    return beer.name.toLowerCase().includes(searchTerm);
-  });
+  const { beersArr, handleSearch, setSearchTerm } = props;
 
   return (
     <div className="NavContainer">
@@ -21,12 +11,9 @@ const Nav = (props) => {
         <section>
           <SearchBox
             label="beers"
-            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
             handleInput={handleSearch}
           />
-        </section>
-        <section>
-          <Card beersArr={filteredBeers} title="beer" />
         </section>
       </div>
     </div>
