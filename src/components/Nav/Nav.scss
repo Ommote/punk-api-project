@@ -1,23 +1,15 @@
-.NavContainer {
+.nav-container {
+  padding: 20px;
+  background-color: blue;
+}
+
+ul {
   display: flex;
+  justify-content: flex-end;
 }
 
-.NavBar {
-  font-size: 25px;
-  margin-top: 0;
-  background-color: #153243;
-  color: #b4b8ab;
-  //   display: flex;
-  height: 80px;
-  width: 100%;
-}
-
-input {
-  font-size: 20px;
-}
-
-input.check {
-  height: 20px;
-  width: 20px;
-  accent-color: red;
+ul > li {
+  padding: 20px;
+  list-style-type: none;
+  color: aliceblue;
 }
