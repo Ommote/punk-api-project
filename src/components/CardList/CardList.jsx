@@ -1,13 +1,8 @@
-import React from 'react'
-import Card from "../Card/Card"
-import "./CardList.scss"
+import React from "react";
+import Card from "../Card/Card";
 
 const CardList = () => {
+  return <div>CardList</div>;
+};
 
-  
-  return (
-    <div>CardList</div>
-  )
-}
-
-export default CardList
+export default CardList;

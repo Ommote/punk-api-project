@@ -1,18 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import Main from "./components/Main/Main"
-import beers from './data/beer';
+import React, { useState } from "react";
+import beers from "./data/beer";
+import Main from "./components/Main/Main";
 
-console.log(beers)
-
-function App() {
-  return (
-    <div className="App">
-      <Main 
-      beersArr={beers}
-      />
-    </div>
-  );
-}
+const App = () => {
+  return <div>App</div>;
+};
 
 export default App;

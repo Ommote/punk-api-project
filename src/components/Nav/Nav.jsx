@@ -1,10 +1,11 @@
-import React from 'react'
-import "./Nav.scss"
+import React from "react";
+import SearchBox from "../SearchBox/SearchBox";
 
 const Nav = () => {
-  return (
-    <div>Nav</div>
-  )
-}
+  return;
+  <div>
+    <SearchBox />
+  </div>;
+};
 
-export default Nav
+export default Nav;
