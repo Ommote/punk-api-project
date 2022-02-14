@@ -3,19 +3,20 @@ import "./Nav.scss";
 import SearchBox from "../SearchBox/SearchBox";
 
 const Nav = (props) => {
-  const { handleInput, handleChangeHighABV, handleChangeLowABV } = props;
+  const {
+    handleInput,
+    handleChangeHighABV,
+    handleChangeLowPH,
+    handleChangeClassic,
+  } = props;
   return (
     <div className="nav-container">
       <SearchBox
         handleInput={handleInput}
         handleChangeHighABV={handleChangeHighABV}
-        handleChangeLowABV={handleChangeLowABV}
+        handleChangeLowPH={handleChangeLowPH}
+        handleChangeClassic={handleChangeClassic}
       />
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
     </div>
   );
 };

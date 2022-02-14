@@ -10,7 +10,8 @@ function App() {
   // STATE
   const [searchTerm, setSearchTerm] = useState("");
   const [isHighABV, setIsHighABV] = useState(false);
-  const [isLowABV, setIsLowABV] = useState(false);
+  const [isLowPH, setIsLowPH] = useState(false);
+  const [isClassic, setIsClassic] = useState(false);
 
   // FUNCTIONS AS PROPS
   const handleInput = (event) => {
@@ -20,48 +21,64 @@ function App() {
   const handleChangeHighABV = (event) => {
     setIsHighABV(event.target.checked);
   };
-  console.log(isHighABV);
-  console.log(setIsHighABV);
 
-  const handleChangeLowABV = (event) => {
-    setIsLowABV(event.target.checked);
+  const handleChangeLowPH = (event) => {
+    setIsLowPH(event.target.checked);
   };
 
-  // FILTRATION: declares variable, checks condition, returns the arrayed objects.filter if true OR returns entire array of objects if not true
-  const filteredByABV = isHighABV
-    ? beers.filter((beer) => beer.abv > 6)
-    : beers;
+  const handleChangeClassic = (event) => {
+    setIsClassic(event.target.checked);
+  };
 
-  const filteredBeers = filteredByABV.filter((beer) =>
-    beer.name.toLowerCase().includes(searchTerm)
-  );
-  // ATTEMPT to introduce filtration by low ABV: didn't work because of the passing to Main as beersArr{filteredBeers}
-  // const filteredByLowABV = isLowABV
-  //   ? beers.filter((beer) => beer.abv < 6)
-  //   : beers;
-
-  // const filteredBeersLow = filteredByLowABV.filter((beer) =>
-  //   beer.name.toLowerCase().includes(searchTerm)
-  // );
-  // WHEN REMOVING: CHECK OTHER COMPONENTS FOR STRAGGLES!
-
-  // VARIABLES PASSED TO MAIN AS PROPS
-  const highABVBeers = beers.filter((beer) => beer.abv > 6);
-  const lowABVBeers = beers.filter((beer) => beer.abv < 6);
+  const filteredBeers = beers.filter((beer) => {
+    if (isHighABV && isLowPH && isClassic) {
+      return (
+        beer.name.toLowerCase().includes(searchTerm) &&
+        beer.abv > 6 &&
+        beer.ph < 4 &&
+        beer.first_brewed.slice(-4) <= 2010
+      );
+    } else if (isHighABV && isLowPH) {
+      return (
+        beer.name.toLowerCase().includes(searchTerm) &&
+        beer.abv > 6 &&
+        beer.ph < 4
+      );
+    } else if (isLowPH && isClassic) {
+      return (
+        beer.name.toLowerCase().includes(searchTerm) &&
+        beer.ph < 4 &&
+        beer.first_brewed.slice(-4) <= 2010
+      );
+    } else if (isHighABV && isClassic) {
+      return (
+        beer.name.toLowerCase().includes(searchTerm) &&
+        beer.abv > 6 &&
+        beer.first_brewed.slice(-4) <= 2010
+      );
+    } else if (isHighABV) {
+      return beer.name.toLowerCase().includes(searchTerm) && beer.abv > 6;
+    } else if (isLowPH) {
+      return beer.name.toLowerCase().includes(searchTerm) && beer.ph < 4;
+    } else if (isClassic) {
+      return (
+        beer.name.toLowerCase().includes(searchTerm) &&
+        beer.first_brewed.slice(-4) <= 2010
+      );
+    } else {
+      return beer.name.toLowerCase().includes(searchTerm);
+    }
+  });
 
   return (
     <div className="App">
       <Nav
         handleInput={handleInput}
         handleChangeHighABV={handleChangeHighABV}
-        handleChangeLowABV={handleChangeLowABV}
+        handleChangeLowPH={handleChangeLowPH}
+        handleChangeClassic={handleChangeClassic}
       />
-      <Main
-        beersArr={filteredBeers}
-        // beersArrTwo={filteredBeersLow}
-        highABVBeers={highABVBeers}
-        lowABVBeers={lowABVBeers}
-      />
+      <Main beersArr={filteredBeers} />
     </div>
   );
 }

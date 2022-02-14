@@ -1,12 +1,14 @@
 .mainContainer {
-  margin: 200px auto;
+  margin: 50px auto;
 
   height: 100%;
-  width: 1000px;
+  width: 80%;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  row-gap: 250px;
+  row-gap: 150px;
+  column-gap: 10px;
 
   // border: 2px solid black;
   padding: 50px;

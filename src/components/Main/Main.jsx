@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 
 const Main = (props) => {
   const { beersArr, highABVBeers } = props;
-  const [isHighABV, setIsHighABV] = useState(false);
+
   const beerJSX = beersArr.map((beer) => {
     return (
       <Card
@@ -14,6 +14,7 @@ const Main = (props) => {
         name={beer.name}
         tagline={beer.tagline}
         description={beer.description}
+        pairing={beer.food_pairing[0]}
         abv={beer.abv}
       />
     );
