@@ -17,6 +17,8 @@ input {
 .search {
   height: 40px;
   width: 200px;
+  font-family: "Roboto";
+  letter-spacing: 2px;
 
   &:hover {
     border: 3px solid $brewdogColor;
