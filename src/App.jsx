@@ -30,7 +30,9 @@ function App() {
     setIsClassic(event.target.checked);
   };
 
+  // SEARCH LOGIC
   const filteredBeers = beers.filter((beer) => {
+    // CHECK MULTIPLE CONDITIONS FIRST
     if (isHighABV && isLowPH && isClassic) {
       return (
         beer.name.toLowerCase().includes(searchTerm) &&
@@ -56,7 +58,9 @@ function App() {
         beer.abv > 6 &&
         beer.first_brewed.slice(-4) <= 2010
       );
-    } else if (isHighABV) {
+    }
+    //CHECK SINGLE CONDITIONS
+    else if (isHighABV) {
       return beer.name.toLowerCase().includes(searchTerm) && beer.abv > 6;
     } else if (isLowPH) {
       return beer.name.toLowerCase().includes(searchTerm) && beer.ph < 4;
