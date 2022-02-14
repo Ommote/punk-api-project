@@ -7,6 +7,14 @@ import Nav from "./components/Nav/Nav";
 console.log(beers);
 
 function App() {
+  // ADDING API
+  const getBeers = () => {
+    fetch("https://api.punkapi.com/v2/beers")
+      .then((res) => {
+        return res.json();
+      })
+      .then(beers);
+  };
   // STATE
   const [searchTerm, setSearchTerm] = useState("");
   const [isHighABV, setIsHighABV] = useState(false);
